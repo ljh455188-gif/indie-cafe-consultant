@@ -54,4 +54,33 @@ describe('ConsultingReport', () => {
       expect(screen.getByText('Try Again')).toBeInTheDocument()
     })
   })
+
+  it('shows error message when SSE stream contains an error event', async () => {
+    const ssePayload = 'data: {"error":"Failed to generate report"}\n\ndata: [DONE]\n\n'
+    const encoder = new TextEncoder()
+    const encoded = encoder.encode(ssePayload)
+
+    let offset = 0
+    const mockReader = {
+      read: vi.fn().mockImplementation(() => {
+        if (offset < encoded.length) {
+          const chunk = encoded.slice(offset)
+          offset = encoded.length
+          return Promise.resolve({ done: false, value: chunk })
+        }
+        return Promise.resolve({ done: true, value: undefined })
+      }),
+    }
+
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      body: { getReader: () => mockReader },
+    }))
+
+    render(<ConsultingReport intake={mockIntake} discoveryResult={mockDiscovery} moatResult={mockMoat} neighborhood={mockNeighborhood} onNext={vi.fn()} />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Failed to generate report')).toBeInTheDocument()
+    })
+  })
 })

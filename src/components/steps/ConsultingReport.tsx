@@ -55,6 +55,10 @@ export default function ConsultingReport({ intake, discoveryResult, moatResult, 
             }
             try {
               const parsed = JSON.parse(data)
+              if (!cancelled && parsed.error) {
+                setError(parsed.error)
+                return
+              }
               if (!cancelled && parsed.text) setReportText(prev => prev + parsed.text)
             } catch { /* skip malformed chunk */ }
           }

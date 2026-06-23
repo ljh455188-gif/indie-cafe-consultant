@@ -10,6 +10,7 @@ const LABEL_COLORS: Record<DiscoveryResult['label'], string> = {
 }
 
 export default function DiscoveryDiagnostic({
+  intake: _intake,
   result,
   neighborhood,
   onNext,
