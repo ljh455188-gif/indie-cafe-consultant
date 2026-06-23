@@ -11,6 +11,7 @@ const MOAT_META = [
 ]
 
 export default function MoatDiagnostic({
+  intake: _intake,
   result,
   neighborhood,
   onNext,
