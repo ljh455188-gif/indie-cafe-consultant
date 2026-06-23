@@ -30,7 +30,8 @@ export default function DiscoveryDiagnostic({
       <div className="flex flex-col items-center py-4">
         <div className="w-36 h-36 rounded-full border-8 border-amber-400 flex items-center justify-center mb-3">
           <div className="text-center">
-            <div className="text-4xl font-bold text-stone-900">{`${result.score} / 100`}</div>
+            <div data-testid="discovery-score" className="text-4xl font-bold text-stone-900">{result.score}</div>
+            <div className="text-sm text-stone-400">/ 100</div>
           </div>
         </div>
         <div className={`text-xl font-semibold ${LABEL_COLORS[result.label]}`}>{result.label}</div>

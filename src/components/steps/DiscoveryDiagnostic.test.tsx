@@ -24,7 +24,7 @@ const mockNeighborhood: NeighborhoodBenchmark = {
 describe('DiscoveryDiagnostic', () => {
   it('displays the discovery score', () => {
     render(<DiscoveryDiagnostic intake={mockIntake} result={mockResult} neighborhood={mockNeighborhood} onNext={vi.fn()} />)
-    expect(screen.getByText('34')).toBeInTheDocument()
+    expect(screen.getByTestId('discovery-score')).toHaveTextContent('34')
   })
 
   it('displays the score label', () => {
