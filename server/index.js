@@ -1,10 +1,18 @@
 import 'dotenv/config'
 import express from 'express'
 import Anthropic from '@anthropic-ai/sdk'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 import { buildPrompt } from './prompt.js'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const app = express()
 app.use(express.json())
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(join(__dirname, '../dist')))
+}
 
 app.post('/api/report', async (req, res) => {
   const { intake, discoveryResult, moatResult, neighborhood } = req.body
@@ -40,5 +48,11 @@ app.post('/api/report', async (req, res) => {
   }
 })
 
-const PORT = 3001
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (_req, res) => {
+    res.sendFile(join(__dirname, '../dist/index.html'))
+  })
+}
+
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`API server running on :${PORT}`))
