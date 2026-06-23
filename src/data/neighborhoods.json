@@ -1,0 +1,65 @@
+{
+  "seongsu": {
+    "name": "Seongsu (성수동)",
+    "avgPhotoCount": 48,
+    "avgReviewCount": 135,
+    "avgDaysSinceLastReview": 11,
+    "franchiseRatio": 0.31,
+    "closureRate": 0.16,
+    "rentPressure": "high"
+  },
+  "yeonnam": {
+    "name": "Yeonnam (연남동)",
+    "avgPhotoCount": 42,
+    "avgReviewCount": 98,
+    "avgDaysSinceLastReview": 14,
+    "franchiseRatio": 0.27,
+    "closureRate": 0.18,
+    "rentPressure": "high"
+  },
+  "mangwon": {
+    "name": "Mangwon (망원동)",
+    "avgPhotoCount": 31,
+    "avgReviewCount": 74,
+    "avgDaysSinceLastReview": 18,
+    "franchiseRatio": 0.22,
+    "closureRate": 0.13,
+    "rentPressure": "medium"
+  },
+  "hapjeong": {
+    "name": "Hapjeong (합정)",
+    "avgPhotoCount": 38,
+    "avgReviewCount": 110,
+    "avgDaysSinceLastReview": 15,
+    "franchiseRatio": 0.29,
+    "closureRate": 0.15,
+    "rentPressure": "medium"
+  },
+  "euljiro": {
+    "name": "Euljiro (을지로)",
+    "avgPhotoCount": 27,
+    "avgReviewCount": 61,
+    "avgDaysSinceLastReview": 22,
+    "franchiseRatio": 0.14,
+    "closureRate": 0.11,
+    "rentPressure": "low"
+  },
+  "seochon": {
+    "name": "Seochon (서촌)",
+    "avgPhotoCount": 29,
+    "avgReviewCount": 67,
+    "avgDaysSinceLastReview": 19,
+    "franchiseRatio": 0.16,
+    "closureRate": 0.12,
+    "rentPressure": "low"
+  },
+  "hongdae": {
+    "name": "Hongdae (홍대)",
+    "avgPhotoCount": 55,
+    "avgReviewCount": 180,
+    "avgDaysSinceLastReview": 8,
+    "franchiseRatio": 0.44,
+    "closureRate": 0.21,
+    "rentPressure": "very high"
+  }
+}
